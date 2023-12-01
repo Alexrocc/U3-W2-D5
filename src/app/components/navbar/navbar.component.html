@@ -6,18 +6,12 @@
     >
       <div class="navbar-nav">
         <a
-          class="nav-link"
           [routerLink]="['/']"
           [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="active"
           >Todos</a
         >
-        <a
-          class="nav-link"
-          [routerLink]="['/completed']"
-          routerLinkActive="active"
-          >Completed</a
-        >
+        <a [routerLink]="['/completed']" routerLinkActive="active">Completed</a>
       </div>
     </div>
   </div>

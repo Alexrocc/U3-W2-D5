@@ -26,4 +26,11 @@ export class TodosService {
     this.taskList.push(newTask);
     console.log(this.taskList);
   }
+
+  checkAsCompleted(data: Partial<Todo>, id: number) {
+    this.taskList = this.taskList.map((task) =>
+      task.id === id ? { ...task, ...data } : task
+    );
+    return this.taskList.find((task) => task.id === id) as Todo;
+  }
 }

@@ -13,12 +13,24 @@ export class TodoListComponent implements OnInit {
   constructor(private todosSrv: TodosService) {}
 
   ngOnInit(): void {
-    const list = this.todosSrv.getTaskList();
-    this.taskList = list;
+    setTimeout(() => {
+      const list = this.todosSrv.getTaskList();
+      this.taskList = list;
+    }, 2000);
   }
   addNewTask() {
-    this.todosSrv.addTask();
-    let input = document.getElementById('taskInput') as HTMLInputElement;
-    input.value = '';
+    setTimeout(() => {
+      let input = document.getElementById('taskInput') as HTMLInputElement;
+      if (input.value !== '') {
+        this.todosSrv.addTask();
+      }
+      input.value = '';
+    }, 2000);
+  }
+  completeTask(id: number, i: number) {
+    setTimeout(() => {
+      this.todosSrv.checkAsCompleted({ completed: true }, id);
+      this.taskList.splice(i, 1);
+    }, 2000);
   }
 }
