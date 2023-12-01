@@ -1,0 +1,9 @@
+<div class="container text-center border-dark">
+  <div class="d-flex flex-column justify-content-end">
+    <p *ngFor="let task of taskList; let i = index">- {{ task.title }}</p>
+  </div>
+  <div>
+    <input type="text" name="" id="taskInput" />
+    <button type="button" id="addTaskBtn" (click)="addNewTask()">+</button>
+  </div>
+</div>
