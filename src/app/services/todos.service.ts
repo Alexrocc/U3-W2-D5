@@ -12,6 +12,13 @@ export class TodosService {
   getTaskList() {
     return this.taskList;
   }
+  await(): Promise<void> {
+    return new Promise<void>((res) => {
+      setTimeout(() => {
+        res();
+      }, 2000);
+    });
+  }
 
   addTask() {
     const taskInput = document.getElementById('taskInput') as HTMLInputElement;

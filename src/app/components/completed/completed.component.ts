@@ -9,15 +9,11 @@ import { TodosService } from 'src/app/services/todos.service';
 })
 export class CompletedComponent implements OnInit {
   taskList!: Todo[];
-  constructor(private todoSrv: TodosService) {}
+  constructor(private todosSrv: TodosService) {}
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      const list = this.todoSrv.getTaskList();
-      this.taskList = list;
-      // .filter((task) => {
-      //   task.completed;
-      // });
-    }, 2000);
+  async ngOnInit() {
+    await this.todosSrv.await();
+    const list = this.todosSrv.getTaskList();
+    this.taskList = list;
   }
 }
