@@ -1,8 +1,10 @@
 <div class="container text-center border-dark">
   <div *ngIf="taskList; else recuperatingTasks">
-    <div class="d-flex flex-column justify-content-end">
-      <div *ngFor="let task of taskList; let i = index">
-        <p *ngIf="task.completed === true">- {{ task.title }}</p>
+    <div *ngIf="taskList.length > 0; else noTasks">
+      <div class="d-flex flex-column justify-content-end">
+        <div *ngFor="let task of taskList; let i = index">
+          <p *ngIf="task.completed === true">- {{ task.title }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -10,4 +12,8 @@
 
 <ng-template #recuperatingTasks>
   <h5 class="mt-5">Recuperating tasks...</h5>
+</ng-template>
+
+<ng-template #noTasks>
+  <h4 class="mt-5">Oops, there are no complete tasks!</h4>
 </ng-template>

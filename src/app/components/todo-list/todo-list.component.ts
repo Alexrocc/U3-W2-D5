@@ -16,6 +16,9 @@ export class TodoListComponent implements OnInit {
     setTimeout(() => {
       const list = this.todosSrv.getTaskList();
       this.taskList = list;
+      // .filter((task) => task.completed === false);
+
+      console.log(this.taskList);
     }, 2000);
   }
   addNewTask() {

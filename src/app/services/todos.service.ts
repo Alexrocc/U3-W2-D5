@@ -16,7 +16,6 @@ export class TodosService {
   addTask() {
     const taskInput = document.getElementById('taskInput') as HTMLInputElement;
     let taskInputValue = taskInput.value;
-
     const newTask: Todo = {
       id: this.id + 1,
       title: taskInputValue,
@@ -24,7 +23,6 @@ export class TodosService {
     };
     this.id++;
     this.taskList.push(newTask);
-    console.log(this.taskList);
   }
 
   checkAsCompleted(data: Partial<Todo>, id: number) {

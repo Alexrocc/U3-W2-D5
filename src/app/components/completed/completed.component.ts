@@ -15,6 +15,9 @@ export class CompletedComponent implements OnInit {
     setTimeout(() => {
       const list = this.todoSrv.getTaskList();
       this.taskList = list;
+      // .filter((task) => {
+      //   task.completed;
+      // });
     }, 2000);
   }
 }
